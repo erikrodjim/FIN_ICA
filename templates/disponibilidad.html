@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ingresar Disponibilidad</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container center">
+        <h1>Ingresar Disponibilidad</h1>
+        <form action="{{ url_for('disponibilidad') }}" method="post">
+            <label for="dia">Día:</label>
+            <input type="text" id="dia" name="dia" required>
+            <label for="hora_inicio">Hora de Inicio:</label>
+            <input type="time" id="hora_inicio" name="hora_inicio" required>
+            <label for="hora_fin">Hora de Fin:</label>
+            <input type="time" id="hora_fin" name="hora_fin" required>
+            <button type="submit">Guardar</button>
+        </form>
+        <a href="{{ url_for('index') }}" class="btn">Volver</a>
+    </div>
+</body>
+</html>

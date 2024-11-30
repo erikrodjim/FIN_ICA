@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionar Solicitudes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container center">
+        <h1>Gestionar Solicitudes</h1>
+        <ul>
+            {% for consulta in consultas %}
+                <li>
+                    Consulta ID: {{ consulta.id }} - Estado: {{ consulta.estado }}
+                    <form action="{{ url_for('actualizar') }}" method="post">
+                        <input type="hidden" name="consulta_id" value="{{ consulta.id }}">
+                        <select name="estado">
+                            <option value="confirmada">Confirmada</option>
+                            <option value="rechazada">Rechazada</option>
+                        </select>
+                        <button type="submit">Actualizar</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('index') }}" class="btn">Volver</a>
+    </div>
+</body>
+</html>

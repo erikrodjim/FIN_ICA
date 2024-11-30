@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Maestro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container center">
+        <h1>Bienvenido, Maestro</h1>
+        <a href="{{ url_for('gestionar') }}" class="btn">Gestionar Solicitudes</a>
+        <a href="{{ url_for('disponibilidad') }}" class="btn">Ingresar Disponibilidad</a>
+    </div>
+</body>
+</html>

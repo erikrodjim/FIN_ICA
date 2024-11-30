@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container center">
+        <h1>Inicio de Sesión</h1>
+        <div class="login-forms">
+            <form action="{{ url_for('login') }}" method="post">
+                <h2>Alumno</h2>
+                <label for="student_id">ID Alumno:</label>
+                <input type="text" id="student_id" name="student_id" required>
+                <button type="submit" name="role" value="student">Ingresar</button>
+            </form>
+            <form action="{{ url_for('login') }}" method="post">
+                <h2>Profesor</h2>
+                <label for="teacher_id">ID Profesor:</label>
+                <input type="text" id="teacher_id" name="teacher_id" required>
+                <button type="submit" name="role" value="teacher">Ingresar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Horarios Disponibles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container center">
+        <h1>Horarios Disponibles</h1>
+        <ul>
+            {% for profesor in profesores %}
+                <li>{{ profesor.nombre }} - Disponibilidad:
+                    <ul>
+                        {% for disponibilidad in profesor.disponibilidad %}
+                            <li>{{ disponibilidad.dia }}: {{ disponibilidad.hora_inicio }} - {{ disponibilidad.hora_fin }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('index') }}" class="btn">Volver</a>
+    </div>
+</body>
+</html>

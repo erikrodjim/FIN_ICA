@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Estudiante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container center">
+        <h1>Bienvenido, Estudiante</h1>
+        {% if consulta_pendiente %}
+            <p>Tienes una consulta pendiente con el estado: {{ consulta_pendiente.estado }}</p>
+        {% endif %}
+        <a href="{{ url_for('horarios') }}" class="btn">Ver Horarios Disponibles</a>
+        <form action="{{ url_for('solicitar') }}" method="post">
+            <h2>Solicitar Consulta</h2>
+            <label for="profesor_id">ID Profesor:</label>
+            <input type="text" id="profesor_id" name="profesor_id" required>
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required>
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" required>
+            <button type="submit">Solicitar</button>
+        </form>
+    </div>
+</body>
+</html>
